@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class ReservacionesController {
 
     @Autowired
@@ -24,14 +25,15 @@ public class ReservacionesController {
     private ReservasRepository reservasRepository;
 
     @PostMapping(path = "/addReserva")
-    public @ResponseBody
-    String addReserva(@RequestBody Reservas requestReservas) {
+    @ResponseBody
+    public String addReserva(@RequestBody Reservas requestReservas) {
         Reservas cadena = null;
         Boolean resultado;
         try {
-            cadena = reservasRepository.save(requestReservas);
+
             resultado = validarEdad(requestReservas);
             if (resultado) {
+                cadena = reservasRepository.save(requestReservas);
                 if (cadena != null)
                     return "Se guardo correctamente la reserva, su codigo de reserva es : " + cadena.getNumeroReserva();
                 return "Error guardando la reserva.";
@@ -57,13 +59,10 @@ public class ReservacionesController {
     }
 
     private boolean validarEdad(Reservas reservas) {
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate fechaNacimiento = LocalDate.parse(reservas.getFechaNacimiento().toString(), fmt);
+        LocalDate fechaNacimiento = reservas.getFechaNacimiento().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         LocalDate ahora = LocalDate.now();
-
         Period periodo = Period.between(fechaNacimiento, ahora);
-
-        return periodo.getYears() < 18;
+        return periodo.getYears() > 18;
     }
 }
 
