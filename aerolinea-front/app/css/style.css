@@ -14,52 +14,84 @@
  }
 
 
-
-
- .sidebar {
-    background-color: yellow;
-    width: 150px;
+ .FloatForm{
     position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
+    left: 37px;
+    top: 17%;
+    width: 40%;
+    background: #fff;
+    border-radius: 4px;
+    padding: 20px;
+ }
+
+ .form-group{
+     margin-bottom: 10px;
+ }
+
+
+ .FloatForm ul{
+    list-style: none;
+    display: inline-flex;
+    padding-left: 16px;
+    margin-bottom:15px;
+ }
+
+
+ .FloatForm ul li{
+    padding-left: 0px;
+    padding-right: 25px;
+    padding-bottom: 12px;
 }
 
-.sidebar h1 {
-    color: white;
+
+.FloatForm ul li:hover a{
+    color: #7d7b7b;
+    border-bottom: 3px solid;
+    padding-bottom: inherit
+}
+ 
+.FloatForm ul li a{
+    font-weight: 600;
+    color: #d6d4d4;
+    font-size: 14pt;
+    text-decoration: none;
+    padding-bottom: inherit
+
 }
 
-.wrapperBody{
-   
-    position: absolute;
-    top: 0;
-    left: 150px;
-    right: 0;
-    bottom: 0;
+li, label, a{
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+
+input, select{
+    border-radius: 3px;
+    border: 1px solid #c5c5c5;
+    padding: 10px;
+    width: 100%;
+}
+
+h2{
+    font-size: 14pt;
+    margin-bottom: 23px;
+}
+
+.radio label{
+    padding-left: 0px;
+    padding-right: 24px; 
     
-    -moz-transition: left 0.5s ease;
-    transition: left 0.5s ease;
 }
 
-input[type=checkbox] {
-   display: none;
+.radio label input{
+    margin-left: 10px !important;
 }
 
-input:checked ~ .wrapperBody { 
-    left: 0;
+button.search{
+    margin-top: 17px;
+    padding: 10px;
+    background: #54ff00ad;
+    color: #fff;
+    font-weight: bold;
 }
 
-input:checked ~ label {
-    left: 0;
-}
 
-label {
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    left: 150px;
-    background-color: blue;
-    
-    -moz-transition: left 0.5s ease;
-    transition: left 0.5s ease;
-}

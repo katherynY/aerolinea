@@ -18,25 +18,21 @@ import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
 import NavigationBar from '../../components/NavigationBar';
+import FloatForm from '../../components/FloatForm';
 
 
 
 export class PaginaInicio extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className="main-wrap">
-        <input id="slide-sidebar" type="checkbox" role="button" />
-        <label for="slide-sidebar"><span>close</span></label>
-        <div className="sidebar"><h1>Settings</h1></div>
-        <div  className="wrapperBody">
-          <section>
-            <div className="ContentImg">
-              <div className="CImg">
-              </div>
-            </div>
-          </section>
+      <section>
+        <div className="ContentImg">
+          
+          <div className="CImg">
+          </div>
+          <FloatForm></FloatForm>
         </div>
-      </div>
+      </section>
     );
   }
 }

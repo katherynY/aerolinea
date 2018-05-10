@@ -10,9 +10,12 @@ import * as ReactBootstrap from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
+
 class NavigationBar extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
+   
     return (
+
       <div>
         <ReactBootstrap.Navbar collapseOnSelect fixedTop fluid>
           <ReactBootstrap.Navbar.Header>
@@ -23,7 +26,7 @@ class NavigationBar extends React.Component { // eslint-disable-line react/prefe
           </ReactBootstrap.Navbar.Header>
           <ReactBootstrap.Navbar.Collapse>
             <ReactBootstrap.Nav className="pull-right">
-              <ReactBootstrap.NavItem eventKey={1} href="#">
+              <ReactBootstrap.NavItem eventKey={1} href="#" >
                 Reserva
               </ReactBootstrap.NavItem>
               <ReactBootstrap.NavItem eventKey={2} href="#">
