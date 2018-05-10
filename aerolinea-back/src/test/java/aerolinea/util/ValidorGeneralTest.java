@@ -7,6 +7,8 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 
 import static org.junit.Assert.*;
@@ -21,7 +23,8 @@ public class ValidorGeneralTest {
     @Test
     public void validarEdadFechaMenor() {
         Reservas reservas = new Reservas();
-        reservas.setFechanacimiento(new Date("18/07/2018"));
+        reservas.setFechanacimiento( Date.from(LocalDate.of(2018, 7, 18)
+                .atStartOfDay(ZoneId.systemDefault()).toInstant()));
         boolean result = validorGeneral.validarEdad(reservas);
         Assert.assertEquals(false, result);
     }
@@ -29,7 +32,8 @@ public class ValidorGeneralTest {
     @Test
     public void validarEdadFechaMayor() {
         Reservas reservas = new Reservas();
-        reservas.setFechanacimiento(new Date("03/07/1992"));
+        reservas.setFechanacimiento( Date.from(LocalDate.of(1992, 7, 03)
+                .atStartOfDay(ZoneId.systemDefault()).toInstant()));
         boolean result = validorGeneral.validarEdad(reservas);
         Assert.assertEquals(true, result);
     }
@@ -37,16 +41,20 @@ public class ValidorGeneralTest {
     @Test
     public void validarEdadIgual18() {
         Reservas reservas = new Reservas();
-        reservas.setFechanacimiento(new Date("03/07/2000"));
+        reservas.setFechanacimiento(
+                Date.from(LocalDate.of(1999, 7, 01)
+                        .atStartOfDay(ZoneId.systemDefault()).toInstant()));
         boolean result = validorGeneral.validarEdad(reservas);
         Assert.assertEquals(true, result);
     }
 
-    @Test(expected = Exception.class)
+    @Test
     public void validarEdadSinFecha() {
         Reservas reservas = new Reservas();
         reservas.setFechanacimiento(null);
         boolean result = validorGeneral.validarEdad(reservas);
+        Assert.assertEquals(false, result);
+
     }
 
 }

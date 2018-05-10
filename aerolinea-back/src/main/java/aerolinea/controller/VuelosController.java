@@ -1,8 +1,10 @@
 package aerolinea.controller;
 
+import aerolinea.business.VuelosDelegate;
+import aerolinea.excepcion.BusinessException;
+import aerolinea.excepcion.PersistenceException;
 import aerolinea.model.Vuelos;
-import aerolinea.repository.VuelosRepository;
-import aerolinea.util.MessageProperties;
+import aerolinea.util.Constantes;
 import aerolinea.util.ValidorGeneral;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -18,20 +19,17 @@ import java.util.List;
 public class VuelosController extends ValidorGeneral {
 
     @Autowired
-    private VuelosRepository vuelosRepository;
+    VuelosDelegate vuelosDelegate;
 
-    @Autowired
-    MessageProperties messageProperties;
 
     @GetMapping(path = "/vuelos/consultar")
     public @ResponseBody
     List<Vuelos> consultaVuelosDisponibles() {
-        List<Vuelos> vuelosList = new ArrayList<>();
+        List<Vuelos> vuelosList;
         try {
-            validarEdad(null);
-            vuelosList = vuelosRepository.findAll();
-        } catch (Exception e) {
-            messageProperties.getMensajeExitoso();
+            vuelosList = vuelosDelegate.consultaVuelosDisponibles();
+        } catch (BusinessException e) {
+            throw new BusinessException(Constantes.VUELO_ERROR_CONSULTANDO, e);
         }
         return vuelosList;
     }
