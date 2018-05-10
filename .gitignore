@@ -2,6 +2,10 @@
 .idea
 *.class
 /build/
+coverage
+build
+node_modules
+stats.json
 
 # Ignore Gradle GUI config
 gradle-app.setting
