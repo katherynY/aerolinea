@@ -14,52 +14,8 @@
  }
 
 
-
-
- .sidebar {
-    background-color: yellow;
-    width: 150px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-}
-
-.sidebar h1 {
-    color: white;
-}
-
-.wrapperBody{
-   
-    position: absolute;
-    top: 0;
-    left: 150px;
-    right: 0;
-    bottom: 0;
-    
-    -moz-transition: left 0.5s ease;
-    transition: left 0.5s ease;
-}
-
-input[type=checkbox] {
-   display: none;
-}
-
-input:checked ~ .wrapperBody { 
-    left: 0;
-}
-
-input:checked ~ label {
-    left: 0;
-}
-
-label {
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    left: 150px;
-    background-color: blue;
-    
-    -moz-transition: left 0.5s ease;
-    transition: left 0.5s ease;
-}
+ .FloatForm{
+     position: absolute;
+     left: 20px;
+     top:0px;
+ }
