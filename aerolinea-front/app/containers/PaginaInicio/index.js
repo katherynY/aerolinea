@@ -27,7 +27,6 @@ export class PaginaInicio extends React.Component { // eslint-disable-line react
     return (
       <section>
         <div className="ContentImg">
-          
           <div className="CImg">
           </div>
           <FloatForm></FloatForm>
