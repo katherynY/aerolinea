@@ -60,30 +60,53 @@ export class ConsultaVuelos extends React.Component { // eslint-disable-line rea
                       <table className="table table-hover ">
                           <thead>
                               <tr>
-                                  <th>Row</th>
-                                  <th>First Name</th>
-                                  <th>Last Name</th>
-                                  <th>Email</th>
+                                  <th>Hora</th>
+                                  <th>Superpromo</th>
+                                  <th>Economica</th>
+                                  <th>Ejecutivo</th>
+                                  <th>Primera clase</th>
                               </tr>
                           </thead>
                           <tbody>
                               <tr>
-                                  <td>1</td>
-                                  <td>John</td>
-                                  <td>Carter</td>
-                                  <td>johncarter@mail.com</td>
+                                  <td>
+                                    10:00 am - Medellin<br></br>
+                                    10: 00 am - Cali
+                                  </td>
+                                  <td>$ 230.000</td>
+                                  <td>$ 140.000</td>
+                                  <td>$ 300.000</td>
+                                  <td>$ 450.000</td>
                               </tr>
                               <tr>
-                                  <td>2</td>
-                                  <td>Peter</td>
-                                  <td>Parker</td>
-                                  <td>peterparker@mail.com</td>
+                                  <td>
+                                    10:00 am - Medellin<br></br>
+                                    10: 00 am - Cali
+                                  </td>
+                                  <td>$ 230.000</td>
+                                  <td>$ 140.000</td>
+                                  <td>$ 300.000</td>
+                                  <td>$ 450.000</td>
                               </tr>
                               <tr>
-                                  <td>3</td>
-                                  <td>John</td>
-                                  <td>Rambo</td>
-                                  <td>johnrambo@mail.com</td>
+                                  <td>
+                                    10:00 am - Medellin<br></br>
+                                    10: 00 am - Cali
+                                  </td>
+                                  <td>$ 230.000</td>
+                                  <td>$ 140.000</td>
+                                  <td>$ 300.000</td>
+                                  <td>$ 450.000</td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                    10:00 am - Medellin<br></br>
+                                    10: 00 am - Cali
+                                  </td>
+                                  <td>$ 230.000</td>
+                                  <td>$ 140.000</td>
+                                  <td>$ 300.000</td>
+                                  <td>$ 450.000</td>
                               </tr>
                           </tbody>
                       </table>
