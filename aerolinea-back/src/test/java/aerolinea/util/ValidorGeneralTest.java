@@ -54,7 +54,6 @@ public class ValidorGeneralTest {
         reservas.setFechanacimiento(null);
         boolean result = validorGeneral.validarEdad(reservas);
         Assert.assertEquals(false, result);
-
     }
 
 }

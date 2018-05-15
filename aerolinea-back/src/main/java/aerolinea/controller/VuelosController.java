@@ -2,7 +2,6 @@ package aerolinea.controller;
 
 import aerolinea.business.VuelosDelegate;
 import aerolinea.excepcion.BusinessException;
-import aerolinea.excepcion.PersistenceException;
 import aerolinea.model.Vuelos;
 import aerolinea.util.Constantes;
 import aerolinea.util.ValidorGeneral;

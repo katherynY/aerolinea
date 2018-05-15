@@ -1,7 +1,6 @@
 package aerolinea.business;
 
 import aerolinea.excepcion.BusinessException;
-import aerolinea.excepcion.PersistenceException;
 import aerolinea.model.Vuelos;
 import aerolinea.repository.VuelosRepository;
 import aerolinea.util.Constantes;

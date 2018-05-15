@@ -1,6 +1,7 @@
 package aerolinea.business;
 
 import aerolinea.excepcion.BusinessException;
+import aerolinea.excepcion.PersistenceException;
 import aerolinea.model.Reservas;
 import aerolinea.repository.ReservasRepository;
 import aerolinea.util.Constantes;
@@ -25,19 +26,20 @@ public class ReservasDelegate extends ValidorGeneral {
             if (resultado) {
                 if (validarReservaporFecha(requestReservas)) {
                     reservas = reservasRepository.save(requestReservas);
-                    if (reservas != null)
+                    if (reservas != null) {
                         return Constantes.getMensaje(Constantes.RESERVA_EXITO_GUARDADO, reservas.getNumeroReserva());
-                    return Constantes.RESERVA_ERROR_GUARDADO;
+                    } else {
+                        return Constantes.RESERVA_ERROR_GUARDADO;
+                    }
+                } else {
+                    return Constantes.ERROR_EXISTE_RESERVA;
                 }
-
             } else {
                 return Constantes.ERROR_MENOR_EDAD;
             }
         } catch (BusinessException e) {
             throw new BusinessException(Constantes.RESERVA_ERROR_GUARDADO, e);
         }
-        return "";
-
     }
 
     public List<Reservas> consultarReservaId(String cedula) {
@@ -55,6 +57,8 @@ public class ReservasDelegate extends ValidorGeneral {
         try {
             cantidad = reservasRepository.consultaRservaporFecha(reservas.getCedula(), reservas.getFechaReserva());
             return cantidad == 0;
+        }catch (PersistenceException e) {
+            throw new PersistenceException(Constantes.RESERVA_ERROR_CONSULTANDO, e);
         } catch (BusinessException e) {
             throw new BusinessException(Constantes.RESERVA_ERROR_CONSULTANDO, e);
         }
