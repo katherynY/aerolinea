@@ -17,7 +17,6 @@ import makeSelectPaginaInicio from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
-import NavigationBar from '../../components/NavigationBar';
 import FloatForm from '../../components/FloatForm';
 
 

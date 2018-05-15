@@ -19,6 +19,7 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 import NavigationBar from '../../components/NavigationBar';
 import '!!style-loader!css-loader!../../css/style.css';
+import { ConsultaVuelos } from '../ConsultaVuelos';
 
 const AppWrapper = styled.div`
   max-width: calc(768px + 16px * 2);
@@ -42,6 +43,7 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={PaginaInicio} />
         <Route exact path="/paginaInicio" component={PaginaInicio} />
+        <Route exact path="/ConsultaVuelos" component={ConsultaVuelos} />
         <Route path="/features" component={FeaturePage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
