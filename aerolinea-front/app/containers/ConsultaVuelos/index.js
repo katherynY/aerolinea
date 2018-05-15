@@ -41,16 +41,16 @@ export class ConsultaVuelos extends React.Component { // eslint-disable-line rea
                   </div>
                   <div className="col-sm-4 col-xs-12 col-md-4">
                     <div className="boxInfo">
-                      <label>Medellin</label>
+                      <label>10 Mayo</label>
                       <label>-</label>
-                      <label>Cali</label>
+                      <label>10 Junio</label>
                     </div>
                   </div>
                   <div className="col-sm-4 col-xs-12 col-md-4">
                     <div className="boxInfo">
-                      <label>Medellin</label>
+                      <label>2 adultos</label>
                       <label>-</label>
-                      <label>Cali</label>
+                      <label>1 niño</label>
                     </div>
                   </div>
                 </div>
