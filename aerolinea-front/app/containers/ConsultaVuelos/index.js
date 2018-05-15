@@ -65,6 +65,7 @@ export class ConsultaVuelos extends React.Component { // eslint-disable-line rea
                                   <th>Economica</th>
                                   <th>Ejecutivo</th>
                                   <th>Primera clase</th>
+                                  <th></th>
                               </tr>
                           </thead>
                           <tbody>
@@ -77,6 +78,7 @@ export class ConsultaVuelos extends React.Component { // eslint-disable-line rea
                                   <td>$ 140.000</td>
                                   <td>$ 300.000</td>
                                   <td>$ 450.000</td>
+                                  <td><input type="checkbox"></input></td>
                               </tr>
                               <tr>
                                   <td>
@@ -87,6 +89,7 @@ export class ConsultaVuelos extends React.Component { // eslint-disable-line rea
                                   <td>$ 140.000</td>
                                   <td>$ 300.000</td>
                                   <td>$ 450.000</td>
+                                  <td><input type="checkbox"></input></td>
                               </tr>
                               <tr>
                                   <td>
@@ -97,6 +100,7 @@ export class ConsultaVuelos extends React.Component { // eslint-disable-line rea
                                   <td>$ 140.000</td>
                                   <td>$ 300.000</td>
                                   <td>$ 450.000</td>
+                                  <td><input type="checkbox"></input></td>
                               </tr>
                               <tr>
                                   <td>
@@ -107,6 +111,7 @@ export class ConsultaVuelos extends React.Component { // eslint-disable-line rea
                                   <td>$ 140.000</td>
                                   <td>$ 300.000</td>
                                   <td>$ 450.000</td>
+                                  <td><input type="checkbox"></input></td>
                               </tr>
                           </tbody>
                       </table>
