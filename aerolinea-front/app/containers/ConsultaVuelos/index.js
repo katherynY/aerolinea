@@ -45,9 +45,33 @@ export class ConsultaVuelos extends React.Component { // eslint-disable-line rea
         <div className="col-xs-12 col-sm-10 col-md-9 no-pad">
           <div className="sectionContainer-gral">
             <div className="form-horizontal">
+
               <div className="form-group">
                 <div className="col-md-12">
                   <h2>Resultados de los vuelos para:</h2>
+                </div>
+              </div>
+              <div className="form-group">
+                <div className="col-sm-4 col-xs-12 col-md-4">
+                  <div className="boxInfo">
+                    <label>Medellin</label>
+                    <label>-</label>
+                    <label>Cali</label>
+                  </div>
+                </div>
+                <div className="col-sm-4 col-xs-12 col-md-4">
+                  <div className="boxInfo">
+                    <label>10 Mayo</label>
+                    <label>-</label>
+                    <label>10 Junio</label>
+                  </div>
+                </div>
+                <div className="col-sm-4 col-xs-12 col-md-4">
+                  <div className="boxInfo">
+                    <label>2 adultos</label>
+                    <label>-</label>
+                    <label>1 niño</label>
+                  </div>
                 </div>
               </div>
               <div className="form-group">
@@ -122,7 +146,6 @@ export class ConsultaVuelos extends React.Component { // eslint-disable-line rea
     );
   }
 }
-
 ConsultaVuelos.propTypes = {
   consultarVuelos: PropTypes.func,
   consultavuelos: PropTypes.object,
