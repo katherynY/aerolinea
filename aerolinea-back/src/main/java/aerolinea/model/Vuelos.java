@@ -3,6 +3,9 @@ package aerolinea.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity(name = "Vuelos")
@@ -37,6 +40,23 @@ public class Vuelos {
     private Double primersClase;
     @Column(name = "HORARIO_REGRESO")
     private Date horarioRegreso;
+
+    //Propiedades formatiadas
+    @Transient
+    private String horaDestino;
+    @Transient
+    private String horaOrigen;
+    @Transient
+    private String superpromoSTRING;
+    @Transient
+    private String economicaSTRING;
+    @Transient
+    private String ejecutivoSTRING;
+    @Transient
+    private String primeraClaseSTRING;
+
+    @Transient
+    DecimalFormat formateador = new DecimalFormat("###,###.##");
 
     public String getIdVuelo() {
         return idVuelo;
@@ -102,15 +122,8 @@ public class Vuelos {
         this.sillasDisponibles = sillasDisponibles;
     }
 
-    public Date getHorario() {
-        return horarioIda;
-    }
-
-    public void setHorario(Date horarioIda) {
-        this.horarioIda = horarioIda;
-    }
-
     public Double getSuperPromo() {
+        this.superpromoSTRING = formateador.format(this.superPromo);
         return superPromo;
     }
 
@@ -119,6 +132,7 @@ public class Vuelos {
     }
 
     public Double getEconomica() {
+        this.economicaSTRING = formateador.format(this.economica);
         return economica;
     }
 
@@ -127,6 +141,7 @@ public class Vuelos {
     }
 
     public Double getEjecutivo() {
+        this.ejecutivoSTRING = formateador.format(ejecutivo);
         return ejecutivo;
     }
 
@@ -135,6 +150,7 @@ public class Vuelos {
     }
 
     public Double getPrimersClase() {
+        this.primeraClaseSTRING = formateador.format(this.primersClase);
         return primersClase;
     }
 
@@ -142,6 +158,70 @@ public class Vuelos {
         this.primersClase = primersClase;
     }
 
+    public Date getHorarioRegreso() {
+        this.horaDestino = new SimpleDateFormat("HH:mm:ss").format(horarioRegreso);
+        return horarioRegreso;
+    }
 
+    public void setHorarioRegreso(Date horarioRegreso) {
+        this.horarioRegreso = horarioRegreso;
+    }
+
+    public String getHoraDestino() {
+        return horaDestino;
+    }
+
+    public void setHoraDestino(String horaDestino) {
+        this.horaDestino = horaDestino;
+    }
+
+    public String getHoraOrigen() {
+        return horaOrigen;
+    }
+
+    public void setHoraOrigen(String horaOrigen) {
+        this.horaOrigen = horaOrigen;
+    }
+
+    public String getSuperpromoSTRING() {
+        return superpromoSTRING;
+    }
+
+    public void setSuperpromoSTRING(String superpromoSTRING) {
+        this.superpromoSTRING = superpromoSTRING;
+    }
+
+    public String getEconomicaSTRING() {
+        return economicaSTRING;
+    }
+
+    public void setEconomicaSTRING(String economicaSTRING) {
+        this.economicaSTRING = economicaSTRING;
+    }
+
+    public String getEjecutivoSTRING() {
+        return ejecutivoSTRING;
+    }
+
+    public void setEjecutivoSTRING(String ejecutivoSTRING) {
+        this.ejecutivoSTRING = ejecutivoSTRING;
+    }
+
+    public String getPrimeraClaseSTRING() {
+        return primeraClaseSTRING;
+    }
+
+    public void setPrimeraClaseSTRING(String primeraClaseSTRING) {
+        this.primeraClaseSTRING = primeraClaseSTRING;
+    }
+
+    public Date getHorarioIda() {
+        this.horaOrigen = new SimpleDateFormat("HH:mm:ss").format(horarioIda);
+        return horarioIda;
+    }
+
+    public void setHorarioIda(Date horarioIda) {
+        this.horarioIda = horarioIda;
+    }
 }
 

@@ -17,10 +17,7 @@ import makeSelectPaginaInicio from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
-import NavigationBar from '../../components/NavigationBar';
 import FloatForm from '../../components/FloatForm';
-
-
 
 export class PaginaInicio extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {

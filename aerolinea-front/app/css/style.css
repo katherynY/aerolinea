@@ -33,12 +33,8 @@
     box-shadow: 10px 10px 56px 0px rgba(0,0,0,0.26);
  }
 
- .form-group{
-     margin-bottom: 10px;
- }
-
-
- .FloatForm ul{
+ 
+.FloatForm ul{
     list-style: none;
     display: inline-flex;
     padding-left: 16px;
@@ -110,6 +106,7 @@ button.search{
     background: #54ff00ad;
     color: #fff;
     font-weight: bold;
+    border-radius: 3px;
 }
 
 .tabs{
@@ -130,6 +127,60 @@ button.search{
 
 .messageBanner img{
     width: 44%;
+}
+
+.sectionContainer{
+    margin-top: 36px;
+   
+
+}
+
+
+.navbar-brand img{
+    width: 90px;
+    margin-top: -12px;
+}
+
+
+.infoLateral{
+    height: 100vh;
+    background:#1f1f1f;
+}
+
+
+.no-pad{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.boxInfo{
+    padding: 20px;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    text-align: center;
+
+}
+
+
+.boxInfo label{
+    font-size: 18px;
+    display: block;
+}
+
+
+.form-horizontal .form-group{
+    margin-right:0px !important;
+    margin-left: 0px !important;
+}
+
+.infoLateral label, .infoLateral h2, .infoLateral a{
+    display: block;
+    color: #fff;
+}
+
+
+.sectionContainer-gral{
+    padding-top:20px;
 }
 
 

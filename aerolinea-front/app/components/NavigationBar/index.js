@@ -20,7 +20,7 @@ class NavigationBar extends React.Component { // eslint-disable-line react/prefe
         <ReactBootstrap.Navbar collapseOnSelect fixedTop fluid>
           <ReactBootstrap.Navbar.Header>
             <ReactBootstrap.Navbar.Brand>
-              <a href="#home">React-Bootstrap</a>
+              <a href="#PaginaInicio"><img src={require('images/tar.png')} /></a>
             </ReactBootstrap.Navbar.Brand>
             <ReactBootstrap.Navbar.Toggle/>
           </ReactBootstrap.Navbar.Header>

@@ -12,6 +12,7 @@ import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
+import ConsultaVuelos from 'containers/ConsultaVuelos/Loadable';
 import PaginaInicio from 'containers/PaginaInicio/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
@@ -40,8 +41,9 @@ export default function App() {
       </Helmet>
       <NavigationBar />
       <Switch>
-        <Route exact path="/" component={PaginaInicio} />
+        <Route exact path="/" component={HomePage} />
         <Route exact path="/paginaInicio" component={PaginaInicio} />
+        <Route exact path="/consultaVuelos" component={ConsultaVuelos} />
         <Route path="/features" component={FeaturePage} />
         <Route path="" component={NotFoundPage} />
       </Switch>

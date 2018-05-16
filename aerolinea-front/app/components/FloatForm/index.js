@@ -83,7 +83,7 @@ class FloatForm extends React.Component { // eslint-disable-line react/prefer-st
             </div>
             <div className="form-group">
               <div className="col-md-4 pull-right text-right">
-                <button className="search">Buscar vuelo</button>
+                <a href="./ConsultaVuelos/"><button className="search" type="button">Buscar vuelo</button></a>
               </div>
             </div>
           </div>
