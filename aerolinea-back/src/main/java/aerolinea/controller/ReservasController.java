@@ -14,13 +14,14 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
+@RequestMapping(path = "/reserva/")
 public class ReservasController extends ValidorGeneral {
 
     @Autowired
     ReservasDelegate reservasDelegate;
 
 
-    @PostMapping(path = "/reserva/agregar")
+    @PostMapping(path = "agregar")
     @ResponseBody
     public String guardarReserva(@RequestBody Reservas requestReservas) {
         String mensaje;
@@ -32,7 +33,7 @@ public class ReservasController extends ValidorGeneral {
         return mensaje;
     }
 
-    @GetMapping(path = "/reserva/consultar")
+    @GetMapping(path = "consultar")
     public @ResponseBody
     List<Reservas> consultarReservaId(@RequestParam String cedula) {
         List<Reservas> reservas = new ArrayList<>();

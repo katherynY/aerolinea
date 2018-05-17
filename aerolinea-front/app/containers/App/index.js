@@ -13,6 +13,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
 import ConsultaVuelos from 'containers/ConsultaVuelos/Loadable';
+import ConsultarReservas from 'containers/ConsultarReservas/Loadable';
 import PaginaInicio from 'containers/PaginaInicio/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
@@ -41,9 +42,10 @@ export default function App() {
       </Helmet>
       <NavigationBar />
       <Switch>
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/" component={PaginaInicio} />
         <Route exact path="/paginaInicio" component={PaginaInicio} />
         <Route exact path="/consultaVuelos" component={ConsultaVuelos} />
+        <Route exact path="/consultaVuelos/consultarReservas" component={ConsultarReservas} />
         <Route path="/features" component={FeaturePage} />
         <Route path="" component={NotFoundPage} />
       </Switch>

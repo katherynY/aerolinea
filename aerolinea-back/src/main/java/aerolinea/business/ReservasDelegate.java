@@ -9,7 +9,6 @@ import aerolinea.util.ValidorGeneral;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Collections;
 import java.util.List;
 
 @Component
@@ -45,7 +44,8 @@ public class ReservasDelegate extends ValidorGeneral {
     public List<Reservas> consultarReservaId(String cedula) {
         List<Reservas> reservas;
         try {
-            reservas = reservasRepository.findAllById(Collections.singleton(cedula));
+            reservas = reservasRepository.consultaRservaporCedula(cedula);
+
         } catch (BusinessException e) {
             throw new BusinessException(Constantes.RESERVA_ERROR_CONSULTANDO, e);
         }
@@ -57,7 +57,7 @@ public class ReservasDelegate extends ValidorGeneral {
         try {
             cantidad = reservasRepository.consultaRservaporFecha(reservas.getCedula(), reservas.getFechaReserva());
             return cantidad == 0;
-        }catch (PersistenceException e) {
+        } catch (PersistenceException e) {
             throw new PersistenceException(Constantes.RESERVA_ERROR_CONSULTANDO, e);
         } catch (BusinessException e) {
             throw new BusinessException(Constantes.RESERVA_ERROR_CONSULTANDO, e);

@@ -10,6 +10,7 @@ public final class Constantes {
     public static final String RESERVA_EXITO_GUARDADO = "Se guardo correctamente la reserva, su código de reserva es: %d";
     public static final String RESERVA_ERROR_GUARDADO = "Error guardando la reserva.";
     public static final String RESERVA_ERROR_CONSULTANDO = "Error consultando las reservas por numero de cédula.";
+    public static final String RESERVA_SIN_DATOS = "No se encontraron registros";
     //VUELOS
     public static final String VUELO_ERROR_CONSULTANDO = "=Error consultando los vuelos disponibles.";
     //VALIDACIONES

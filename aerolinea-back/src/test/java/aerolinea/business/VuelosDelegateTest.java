@@ -28,7 +28,7 @@ public class VuelosDelegateTest {
         List<Vuelos> vuelos = new ArrayList<>();
         vuelo1.setIdVuelo("1");
         vuelos.add(vuelo1);
-        Mockito.when(vuelosRepository.findAll()).thenReturn(vuelos);
+        Mockito.when(vuelosRepository.consultarVuelosIda()).thenReturn(vuelos);
         List<Vuelos> result = vuelosDelegate.consultaVuelosDisponibles();
         Assert.assertEquals("1", result.iterator().next().getIdVuelo());
     }
@@ -41,7 +41,7 @@ public class VuelosDelegateTest {
         vuelo.setCiudadDestino(null);
         vuelo.setCiudadOrigen(null);
         vuelos.add(vuelo);
-        Mockito.when(vuelosRepository.findAll()).thenReturn(vuelos);
+        Mockito.when(vuelosRepository.consultarVuelosIda()).thenReturn(vuelos);
         List<Vuelos> result = vuelosDelegate.consultaVuelosDisponibles();
         Assert.assertEquals(null, result.iterator().next().getIdVuelo());
         Assert.assertEquals(null, result.iterator().next().getCiudadDestino());

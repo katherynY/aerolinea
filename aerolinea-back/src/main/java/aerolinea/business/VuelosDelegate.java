@@ -18,7 +18,7 @@ public class VuelosDelegate {
     public List<Vuelos> consultaVuelosDisponibles() {
         List<Vuelos> vuelosList;
         try {
-            vuelosList = vuelosRepository.findAll();
+            vuelosList = vuelosRepository.consultarVuelosIda();
         } catch (BusinessException e) {
             throw new BusinessException(Constantes.VUELO_ERROR_CONSULTANDO, e);
         }

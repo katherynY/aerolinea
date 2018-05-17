@@ -6,22 +6,20 @@ import aerolinea.model.Vuelos;
 import aerolinea.util.Constantes;
 import aerolinea.util.ValidorGeneral;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
+@RequestMapping(path = "/vuelos/")
 public class VuelosController extends ValidorGeneral {
 
     @Autowired
     VuelosDelegate vuelosDelegate;
 
 
-    @GetMapping(path = "/vuelos/consultar")
+    @GetMapping(path = "consultar")
     public @ResponseBody
     List<Vuelos> consultaVuelosDisponibles() {
         List<Vuelos> vuelosList;

@@ -9,7 +9,6 @@ public class Reservas {
 
     @Id
     @Column(name = "cedula")
-    @NotNull
     private String cedula;
     @Column(name = "numero_reserva")
     private String numeroReserva;

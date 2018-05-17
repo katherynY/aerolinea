@@ -180,9 +180,12 @@ button.search{
     color: #fff;
 }
 
-
 .sectionContainer-gral{
     padding-top:20px;
+}
+
+.texto-valores{
+    text-align: right;
 }
 
 
