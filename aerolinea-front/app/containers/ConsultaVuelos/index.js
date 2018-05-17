@@ -66,7 +66,7 @@ export class ConsultaVuelos extends React.Component { // eslint-disable-line rea
   render() {
     const listaVuelos = this.props.consultavuelos.vuelos
       && this.props.consultavuelos.vuelos.map((item) => (
-        <tr key={item.idVuelo} onClick={this.props.cargarInformacion(item)}>
+        <tr key={item.idVuelo}>
           <td>{item.horaOrigen} - {item.ciudadOrigen}</td>
           <td className="texto-valores">$ {item.superpromoSTRING}</td>
           <td className="texto-valores">$ {item.economicaSTRING}</td>
@@ -240,6 +240,7 @@ export class ConsultaVuelos extends React.Component { // eslint-disable-line rea
 ConsultaVuelos.propTypes = {
   consultarVuelos: PropTypes.func,
   guardarElementos: PropTypes.func,
+  cargarInformacion: PropTypes.func,
   consultavuelos: PropTypes.object,
 };
 
