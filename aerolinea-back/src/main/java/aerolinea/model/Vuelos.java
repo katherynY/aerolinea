@@ -54,6 +54,10 @@ public class Vuelos {
     private String ejecutivoSTRING;
     @Transient
     private String primeraClaseSTRING;
+    @Transient
+    private String fechaIdaSTRING;
+    @Transient
+    private String fechaRegresoSTRING;
 
     @Transient
     DecimalFormat formateador = new DecimalFormat("###,###.##");
@@ -82,7 +86,8 @@ public class Vuelos {
         this.ciudadDestino = ciudadDestino;
     }
 
-    public Date getFechaIda() {
+       public Date getFechaIda() {
+        this.fechaIdaSTRING = new SimpleDateFormat("dd/MM/yyyy").format(fechaIda);
         return fechaIda;
     }
 
@@ -91,6 +96,7 @@ public class Vuelos {
     }
 
     public Date getFechaRegreso() {
+        this.fechaRegresoSTRING = new SimpleDateFormat("dd/MM/yyyy").format(fechaRegreso);
         return fechaRegreso;
     }
 
@@ -222,6 +228,22 @@ public class Vuelos {
 
     public void setHorarioIda(Date horarioIda) {
         this.horarioIda = horarioIda;
+    }
+
+    public String getFechaIdaSTRING() {
+        return fechaIdaSTRING;
+    }
+
+    public void setFechaIdaSTRING(String fechaIdaSTRING) {
+        this.fechaIdaSTRING = fechaIdaSTRING;
+    }
+
+    public String getFechaRegresoSTRING() {
+        return fechaRegresoSTRING;
+    }
+
+    public void setFechaRegresoSTRING(String fechaRegresoSTRING) {
+        this.fechaRegresoSTRING = fechaRegresoSTRING;
     }
 }
 

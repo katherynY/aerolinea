@@ -46,10 +46,12 @@
     padding-left: 0px;
     padding-right: 25px;
     padding-bottom: 12px;
+    font-size: 19pt;
+    cursor: pointer;
 }
 
 
-.FloatForm ul li:hover a, .FloatForm ul li.active a{
+.FloatForm ul li:hover , .FloatForm ul li.active, .FloatForm ul li:focus{
     color: #fff;
     border-bottom: 3px solid;
     padding-bottom: inherit
@@ -180,14 +182,28 @@ button.search{
     color: #fff;
 }
 
+
 .sectionContainer-gral{
     padding-top:20px;
+}
+
+.block-labels label{
+    display: block;
+}
+
+
+.container-no-data{
+    padding-top: 15%
+}
+
+table tr td input{
+    width: 29px;
+}
+
+table tr td{
+    vertical-align: middle;
 }
 
 .texto-valores{
     text-align: right;
 }
-
-
-
-

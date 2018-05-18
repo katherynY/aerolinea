@@ -18,6 +18,7 @@ import {
   ModalFooter,
 } from 'react-modal-bootstrap';
 import axios from 'axios';
+import * as constants from './constants'
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
@@ -61,17 +62,41 @@ export class ConsultaVuelos extends React.Component { // eslint-disable-line rea
 
   cargarInformacion = (vuelo) => {
     this.props.guardarElementos(vuelo);
+    const body = {
+      cedula: '1214714036',
+      vuelos: { ...this.props.consultavuelos.detalleVuelo },
+    };
+    console.log(body);
   }
+
+  guardarValores = (valor, tipoValor) => {
+    var valores = valor + ' - ' + tipoValor;
+    this.props.guardarValor(valores);
+  }
+
+  finalizaReserva = () => {
+    this.setState({
+      isOpen: false,
+    });
+  };
 
   render() {
     const listaVuelos = this.props.consultavuelos.vuelos
       && this.props.consultavuelos.vuelos.map((item) => (
-        <tr key={item.idVuelo}>
+        <tr key={item.idVuelo} onClick={() => this.cargarInformacion(item)}>
           <td>{item.horaOrigen} - {item.ciudadOrigen}</td>
-          <td className="texto-valores">$ {item.superpromoSTRING}</td>
-          <td className="texto-valores">$ {item.economicaSTRING}</td>
-          <td className="texto-valores">$ {item.ejecutivoSTRING}</td>
-          <td className="texto-valores">$ {item.primeraClaseSTRING}</td>
+          <td className="texto-valores">$ {item.superpromoSTRING}
+            <input value={item.superpromoSTRING} type="radio" onClick={() => this.guardarValores(item.superpromoSTRING, constants.VALOR_SUPER_PROMO)} name="valor"></input>
+          </td>
+          <td className="texto-valores">$ {item.economicaSTRING}
+            <input value={item.economicaSTRING} type="radio" onClick={() => this.guardarValores(item.economicaSTRING, constants.DEFAULT_ECONOMICA)} name="valor"></input>
+          </td>
+          <td className="texto-valores">$ {item.ejecutivoSTRING}
+            <input value={item.ejecutivoSTRING} type="radio" onClick={() => this.guardarValores(item.ejecutivoSTRING, constants.DEFAULT_EJECUTIVO)} name="valor"></input>
+          </td>
+          <td className="texto-valores">$ {item.primeraClaseSTRING}
+            <input value={item.primeraClaseSTRING} type="radio" onClick={() => this.guardarValores(item.primeraClaseSTRING, constants.DEFAULT_PRIMERA_CLASE)} name="valor"></input>
+          </td>
         </tr>
       ));
 
@@ -123,24 +148,13 @@ export class ConsultaVuelos extends React.Component { // eslint-disable-line rea
                       <div className="form-group">
                         <div className="col-md-12">
                           <label>IDA</label>
-                          <label> seleccione un vuelo</label>
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <div className="col-md-12">
-                          <label>Regreso</label>
-                          <label> seleccione un vuelo</label>
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <div className="col-md-12">
-                          <hr></hr>
+                          <label>{this.props.consultavuelos.detalleVuelo.horaOrigen} - {this.props.consultavuelos.detalleVuelo.ciudadOrigen} </label>
                         </div>
                       </div>
                       <div className="form-group">
                         <div className="col-md-12">
                           <label>VALOR</label>
-                          <label> seleccione un vuelo</label>
+                          <label> $ {this.props.consultavuelos.valor} </label>
                         </div>
                       </div>
                       <div className="form-group">
@@ -164,24 +178,18 @@ export class ConsultaVuelos extends React.Component { // eslint-disable-line rea
                           <label>{}</label>
                         </div>
                         <div className="col-md-4">
-                          <label>Vuelo ida</label>
-                          <label>10 / 10 / 2018</label>
-                          <label>Medellin - Cali</label>
-                        </div>
-                        <div className="col-md-4">
-                          <label>Vuelo regreso</label>
-                          <label>10 / 10 / 2018</label>
-                          <label>Cali - Medellin</label>
+                          <label>Vuelo ida </label>
+                          <label>{this.props.consultavuelos.detalleVuelo.fechaIdaSTRING} - {this.props.consultavuelos.detalleVuelo.ciudadOrigen} </label>
+                          <label></label>
                         </div>
                       </div>
                       <div className="form-group block-labels">
                         <div className="col-md-4">
-                          <label>Clase</label>
-                          <label>Ejecutivo</label>
+                          <label>Clase Ejecutivo</label>
                         </div>
                         <div className="col-md-4">
                           <label>Valor</label>
-                          <label>$ 560.000</label>
+                          <label>$ {this.props.consultavuelos.valor} </label>
                         </div>
                       </div>
                       <hr></hr>
@@ -191,11 +199,11 @@ export class ConsultaVuelos extends React.Component { // eslint-disable-line rea
                       <div className="form-group block-labels">
                         <div className="col-md-6">
                           <label>Nombre</label>
-                          <input type="text" class="form-control" />
+                          <input type="text" className="form-control" />
                         </div>
                         <div className="col-md-6">
                           <label>Apellido</label>
-                          <input type="text" class="form-control" />
+                          <input type="text" className="form-control" />
                         </div>
                       </div>
                     </div>
@@ -240,7 +248,7 @@ export class ConsultaVuelos extends React.Component { // eslint-disable-line rea
 ConsultaVuelos.propTypes = {
   consultarVuelos: PropTypes.func,
   guardarElementos: PropTypes.func,
-  cargarInformacion: PropTypes.func,
+  guardarValor: PropTypes.func,
   consultavuelos: PropTypes.object,
 };
 
@@ -251,6 +259,7 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     guardarElementos: (value) => { dispatch({ type: 'GUARDAR_ELEMENTOS', value }); },
+    guardarValor: (value) => { dispatch({ type: 'GUARDAR_VALOR', value }); },
     consultarVuelos: () => {
       axios.get('http://localhost:8085/vuelos/consultar')
         .then((response) => {
@@ -274,12 +283,12 @@ export default compose(
   withConnect,
 )(ConsultaVuelos);
 
-function run() {
-  ReactDOM.render(< App />, document.getElementById('app'));
-}
+// function run() {
+//   ReactDOM.render(< App />, document.getElementById('app'));
+// }
 
-if (window.addEventListener) {
-  window.addEventListener('DOMContentLoaded', run);
-} else {
-  window.attachEvent('onload', run);
-}
+// if (window.addEventListener) {
+//   window.addEventListener('DOMContentLoaded', run);
+// } else {
+//   window.attachEvent('onload', run);
+// }
